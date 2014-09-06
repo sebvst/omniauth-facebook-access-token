@@ -80,6 +80,8 @@ module OmniAuth
       end
 
       def callback_phase
+        logger.debug request.params['access_token']
+        logger.debug "This is from debug"
         if !request.params['access_token'] || request.params['access_token'].to_s.empty?
           raise ArgumentError.new("No access token provided.")
         end
